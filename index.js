@@ -7,6 +7,7 @@ export default function Home() {
       alignItems: 'center',
       minHeight: '100vh',
       textAlign: 'center',
+      padding: '20px'
     }}>
       <h1 style={{ fontSize: '3rem', color: '#7e3ff2' }}>
         Bienvenido a Cuentos Eternos
@@ -32,6 +33,18 @@ export default function Home() {
       >
         Crear mi caricatura mágica
       </a>
+
+      <div style={{ marginTop: '50px', maxWidth: '100%', width: '560px' }}>
+        <iframe 
+          width="100%" 
+          height="315" 
+          src="https://www.youtube.com/embed/WSLZc6L5YuE" 
+          title="Cuento de Jessica"
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 }

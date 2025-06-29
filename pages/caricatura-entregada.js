@@ -19,8 +19,9 @@ export default function CaricaturaEntregada() {
         Tu caricatura mágica será creada en las próximas horas. Por favor, llena el siguiente formulario para que nuestro equipo comience.
       </p>
 
+      {/* Formulario incrustado */}
       <iframe
-        src="https://tupagina.com/formulario-caricatura"
+        src="https://tupagina.com/formulario-caricatura"  // Reemplazar con el formulario real
         className="w-full max-w-xl h-[500px] border rounded-lg shadow"
       />
 
@@ -32,6 +33,7 @@ export default function CaricaturaEntregada() {
           Mira este ejemplo y descubre lo mágico que puede ser:
         </p>
 
+        {/* Video de ejemplo */}
         <div className="w-full aspect-video mb-6">
           <iframe
             className="w-full h-full rounded-lg"
@@ -42,10 +44,13 @@ export default function CaricaturaEntregada() {
           ></iframe>
         </div>
 
+        {/* Botón de upsell */}
         <div className="text-center">
           <a
-            href="https://gumroad.com/l/cuento-personalizado"
+            href="https://evertejada.gumroad.com/l/otkrg"
             className="bg-purple-600 text-white px-6 py-3 rounded-xl text-lg font-bold shadow hover:bg-purple-700 transition"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Quiero mi cuento personalizado ✨
           </a>

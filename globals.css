@@ -1,33 +1,33 @@
+/* Banner animado */
+.promo-banner {
+  background-color: #e1bee7;
+  color: #4a148c;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.promo-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: moveBanner 15s linear infinite;
+}
+
+@keyframes moveBanner {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive ajustes generales */
 body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f4ecff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-nav {
-  background-color: #6b21a8;
-  padding: 1rem;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  align-items: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-}
-
-nav a:hover {
-  text-decoration: underline;
-  transform: scale(1.05);
-}
-
-main {
-  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  background-color: #f3e5f5;
 }

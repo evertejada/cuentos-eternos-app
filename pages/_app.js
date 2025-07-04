@@ -1,29 +1,37 @@
-import Link from 'next/link';
-import '../styles/globals.css';
+import Link from 'next/link'
+import '../styles/globals.css'
 
-export default function App({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <>
+      {/* MENÚ PRINCIPAL */}
       <nav style={{
-        background: '#6b21a8',
-        padding: '1rem',
+        backgroundColor: '#6a1b9a',
+        padding: '15px',
         display: 'flex',
-        gap: '1.5rem',
         justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        fontWeight: 'bold'
+        gap: '20px',
+        flexWrap: 'wrap'
       }}>
-        <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Inicio</Link>
-        <Link href="/narrar" style={{ color: 'white', textDecoration: 'none' }}>Narrar</Link>
-        <Link href="/upsell" style={{ color: 'white', textDecoration: 'none' }}>Upsell</Link>
-        <Link href="/probar-cuento" style={{ color: 'white', textDecoration: 'none' }}>Probar Cuento</Link>
-        <Link href="/caricatura-entregada" style={{ color: 'white', textDecoration: 'none' }}>Caricatura</Link>
+        <Link href="/"><span style={{ color: 'white', fontWeight: 'bold' }}>Inicio</span></Link>
+        <Link href="/narrar"><span style={{ color: 'white' }}>Narrar</span></Link>
+        <Link href="/probar-cuento"><span style={{ color: 'white' }}>Probar Cuento</span></Link>
+        <Link href="/caricatura-entregada"><span style={{ color: 'white' }}>Caricatura</span></Link>
+        <Link href="/mis-compras"><span style={{ color: 'white' }}>Mis Compras</span></Link>
+        <Link href="/mis-cuentos"><span style={{ color: 'white' }}>Mis Cuentos</span></Link>
+        <Link href="/clonar-mi-voz"><span style={{ color: 'white' }}>Clonar mi Voz</span></Link>
+        <Link href="/biblioteca"><span style={{ color: 'white' }}>Biblioteca</span></Link>
       </nav>
 
-      <main style={{ padding: '2rem' }}>
-        <Component {...pageProps} />
-      </main>
-    </div>
-  );
+      {/* CINTILLO ANIMADO */}
+      <div className="promo-banner">
+        <div className="promo-text">
+          ✨ Crea tu historia, descarga nuestra app y hazla eterna ✨
+        </div>
+      </div>
+
+      {/* Página activa */}
+      <Component {...pageProps} />
+    </>
+  )
 }

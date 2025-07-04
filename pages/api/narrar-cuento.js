@@ -10,13 +10,28 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Aquí puedes integrar la lógica de narración o IA
-    return res.status(200).json({
-      success: true,
-      audioUrl: 'https://tu-servidor.com/audio-generado.mp3',
-      mensaje: 'Narración generada con éxito'
+    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voz}`, {
+      method: 'POST',
+      headers: {
+        'xi-api-key': 'TU_API_KEY_AQUI', // <--- reemplaza esto con tu API Key real
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text: cuento,
+        model_id: 'eleven_monolingual_v1',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.8
+        }
+      })
     });
+
+    const audioBuffer = await response.arrayBuffer();
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Content-Disposition', 'inline; filename="cuento.mp3"');
+    res.send(Buffer.from(audioBuffer));
   } catch (error) {
-    return res.status(500).json({ message: 'Error interno del servidor' });
+    console.error('Error:', error);
+    return res.status(500).json({ message: 'Error al generar la narración' });
   }
 }

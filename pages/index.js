@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [titulo, setTitulo] = useState('');
@@ -18,45 +19,27 @@ export default function Home() {
   };
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      minHeight: '90vh',
-      backgroundColor: '#F5E8FF',
-      padding: '2rem'
-    }}>
-      <h1 style={{
-        fontSize: '3rem',
-        fontWeight: 'bold',
-        color: '#8E44AD',
-        marginBottom: '1rem'
-      }}>
-        Bienvenido a Cuentos Eternos
-      </h1>
+    <div>
+      {/* NAVBAR PRINCIPAL */}
+      <nav style={{ backgroundColor: '#6a1b9a', padding: '15px 0', display: 'flex', justifyContent: 'center', gap: '20px' }}>
+        <Link href="/"><span style={{ color: 'white', fontWeight: 'bold' }}>Inicio</span></Link>
+        <Link href="/narrar"><span style={{ color: 'white' }}>Narrar</span></Link>
+        <Link href="/probar-cuento"><span style={{ color: 'white' }}>Probar Cuento</span></Link>
+        <Link href="/caricatura-entregada"><span style={{ color: 'white' }}>Caricatura</span></Link>
+        <Link href="/mis-compras"><span style={{ color: 'white' }}>Mis Compras</span></Link>
+        <Link href="/mis-cuentos"><span style={{ color: 'white' }}>Mis Cuentos</span></Link>
+        <Link href="/clonar-voz"><span style={{ color: 'white' }}>Clonar mi Voz</span></Link>
+        <Link href="/biblioteca"><span style={{ color: 'white' }}>Biblioteca</span></Link>
+      </nav>
 
-      <p style={{
-        fontSize: '1.4rem',
-        color: '#5D3A9B',
-        marginBottom: '2rem'
-      }}>
-        Donde cada historia puede ser tuya ✨
-      </p>
-
-      {/* TEXTO EN MOVIMIENTO */}
-      <marquee behavior="scroll" direction="left" scrollamount="6" style={{
-        fontSize: '1.2rem',
-        color: '#6C3483',
-        background: '#E8DAEF',
-        padding: '10px 20px',
-        borderRadius: '12px',
-        fontWeight: '500',
-        width: '80%'
-      }}>
-        ✨ Crea tu historia, descarga nuestra app y hazla eterna ✨
-      </marquee>
+      {/* HERO PRINCIPAL */}
+      <div style={{ textAlign: 'center', marginTop: '80px' }}>
+        <h1 style={{ color: '#7b1fa2', fontSize: '3em' }}>Bienvenido a Cuentos Eternos</h1>
+        <p style={{ fontSize: '1.2em', marginBottom: '30px' }}>Donde cada historia puede ser tuya ✨</p>
+        <marquee style={{ color: '#6a1b9a', fontWeight: 'bold', fontSize: '1.1em' }}>
+          🎉 Crea tu historia mágica. Descarga nuestra App ahora. 🎉
+        </marquee>
+      </div>
     </div>
   );
 }

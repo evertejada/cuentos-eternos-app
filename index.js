@@ -9,7 +9,7 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('/api/narrar-cuento', {
+    const res = await fetch('/api/narrar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ titulo, tipo, contenido }),
@@ -19,23 +19,17 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div>
+      {/* NAVBAR */}
       <nav>
+        <Link href="/">Inicio</Link>
         <Link href="/narrar">Narrar</Link>
-        <Link href="/caricatura-entregada">Caricatura</Link>
         <Link href="/probar-cuento">Probar Cuento</Link>
-        <Link href="/upsell">Upsell</Link>
+        <Link href="/caricatura-entregada">Caricatura</Link>
       </nav>
 
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        textAlign: 'center',
-        padding: '20px'
-      }}>
+      {/* CONTENIDO PRINCIPAL */}
+      <main>
         <h1 style={{ fontSize: '3rem', color: '#7e3ff2' }}>
           Bienvenido a Cuentos Eternos
         </h1>
@@ -43,8 +37,9 @@ export default function Home() {
           Donde cada historia puede ser tuya ✨
         </p>
 
+        {/* BOTÓN DE CARICATURA */}
         <a
-          href="https://tupagina.com/formulario"
+          href="https://cuentos-eternos-app.vercel.app/formulario-caricatura"
           style={{
             marginTop: '30px',
             padding: '15px 30px',
@@ -55,6 +50,7 @@ export default function Home() {
             fontWeight: 'bold',
             fontSize: '18px',
             boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+            display: 'inline-block',
             transition: 'transform 0.2s',
           }}
           onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
@@ -63,6 +59,7 @@ export default function Home() {
           Crear mi caricatura mágica
         </a>
 
+        {/* VIDEO DEMO */}
         <div style={{ marginTop: '50px', maxWidth: '100%', width: '560px' }}>
           <iframe
             width="100%"
@@ -75,7 +72,7 @@ export default function Home() {
           ></iframe>
         </div>
 
-        {/* 🧩 FORMULARIO PARA GENERAR CUENTO CON VOZ */}
+        {/* FORMULARIO DE GENERACIÓN DE CUENTO */}
         <form onSubmit={handleSubmit} style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '10px', width: '300px' }}>
           <input
             type="text"
@@ -98,22 +95,26 @@ export default function Home() {
             required
           />
           <button type="submit">Generar Cuento con Voz</button>
-
-          {respuesta && (
-            <div style={{ marginTop: '20px', backgroundColor: '#f9f9f9', padding: '15px', borderRadius: '10px' }}>
-              <p><strong>Voz usada:</strong> {respuesta.voz}</p>
-              <p><strong>Narración:</strong> {respuesta.narracion}</p>
-
-              <audio controls src={respuesta.linkDescarga} style={{ width: '100%', marginTop: '10px' }} />
-
-              <a href={respuesta.linkDescarga} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: '10px', color: '#0070f3' }}>
-                Descargar audio
-              </a>
-            </div>
-          )}
         </form>
-      </div>
-    </>
+
+        {/* RESPUESTA DEL CUENTO */}
+        {respuesta && (
+          <div style={{ marginTop: '20px', backgroundColor: '#f9f9f9', padding: '15px', borderRadius: '10px' }}>
+            <p><strong>Voz usada:</strong> {respuesta.voz}</p>
+            <p><strong>Narración:</strong> {respuesta.narracion}</p>
+
+            <audio controls src={respuesta.linkDescarga} style={{ width: '100%', marginTop: '10px' }} />
+            <a
+              href={respuesta.linkDescarga}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', marginTop: '10px', color: '#0070f3' }}
+            >
+              Descargar audio
+            </a>
+          </div>
+        )}
+      </main>
+    </div>
   );
 }
-

@@ -91,15 +91,14 @@ export default function Home() {
         <button type="submit">Generar Cuento con Voz</button>
 
         {respuesta && (
-          <div style={{ marginTop: '20px' }}>
-            <p><strong>Voz usada:</strong> {respuesta.voz}</p>
-            <p><strong>Narración:</strong> {respuesta.narracion}</p>
-            <a href={respuesta.linkDescarga} target="_blank" rel="noopener noreferrer">
-              Descargar audio
-            </a>
-          </div>
-        )}
-      </form>
-    </div>
-  );
-}
+  <div style={{ marginTop: '20px', backgroundColor: '#f9f9f9', padding: '15px', borderRadius: '10px' }}>
+    <p><strong>Voz usada:</strong> {respuesta.voz}</p>
+    <p><strong>Narración:</strong> {respuesta.narracion}</p>
+
+    <audio controls src={respuesta.linkDescarga} style={{ width: '100%', marginTop: '10px' }} />
+
+    <a href={respuesta.linkDescarga} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: '10px', color: '#0070f3' }}>
+      Descargar audio
+    </a>
+  </div>
+)}

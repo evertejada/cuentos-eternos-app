@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
         <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Inicio</Link>
         <Link href="/narrar" style={{ color: 'white', textDecoration: 'none' }}>Narrar</Link>
         <Link href="/upsell" style={{ color: 'white', textDecoration: 'none' }}>Upsell</Link>
-        <Link href="/probar-cuento" style={{ color: 'white', textDecoration: 'none' }}>Probar cuento</Link>
+        <Link href="/probar-cuento" style={{ color: 'white', textDecoration: 'none' }}>Probar Cuento</Link>
         <Link href="/caricatura-entregada" style={{ color: 'white', textDecoration: 'none' }}>Caricatura</Link>
       </nav>
 

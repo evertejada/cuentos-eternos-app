@@ -6,6 +6,12 @@ export default function Home() {
       <Head>
         <title>Cuentos Eternos</title>
         <meta name="description" content="Cuentos personalizados que duran para siempre" />
+        <style>{`
+          @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
+        `}</style>
       </Head>
 
       {/* CINTILLO ANIMADO */}

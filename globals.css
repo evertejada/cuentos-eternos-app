@@ -31,3 +31,11 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #f3e5f5;
 }
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

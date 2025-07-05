@@ -1,1 +1,91 @@
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f5f5;
+  color: #2c2c2c;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* === CLASES UTILITARIAS === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+/* === BOTÓN CTA === */
+.button-primary {
+  background-color: #6b47dc;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.button-primary:hover {
+  background-color: #5532c9;
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === ESTILO DE TÍTULOS === */
+h1, h2, h3 {
+  color: #4a148c;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+/* === BANNER PROMOCIONAL ANIMADO === */
+.promo-banner {
+  background-color: #e1bee7;
+  color: #4a148c;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.promo-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: moveBanner 15s linear infinite;
+}
+
+@keyframes moveBanner {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
 

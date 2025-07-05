@@ -4,7 +4,7 @@ import '../styles/globals.css';
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* NAVBAR GLOBAL */}
+      {/* MENÚ PRINCIPAL */}
       <nav style={{
         backgroundColor: '#6a1b9a',
         padding: '15px',
@@ -22,20 +22,39 @@ export default function MyApp({ Component, pageProps }) {
         <Link href="/biblioteca"><span style={{ color: 'white' }}>Biblioteca</span></Link>
       </nav>
 
-      {/* CINTILLO PROMOCIONAL GLOBAL */}
+      {/* CINTILLO PROMO ANIMADO */}
       <div style={{
         backgroundColor: '#e1bee7',
-        textAlign: 'center',
-        padding: '10px 0',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
         fontWeight: 'bold',
+        fontSize: '15px',
         color: '#6a1b9a',
-        fontSize: '15px'
+        padding: '8px 0'
       }}>
-        💫 Lo que amas no debería olvidarse jamás. <strong>Hazlo eterno con un cuento</strong> ✨
+        <div style={{
+          display: 'inline-block',
+          paddingLeft: '100%',
+          animation: 'scroll-left 20s linear infinite'
+        }}>
+          📲 Descarga nuestra app, inmortaliza lo que más amas con un cuento eterno ✨
+        </div>
       </div>
 
-      {/* CONTENIDO DE LA PÁGINA */}
+      {/* CONTENIDO PRINCIPAL */}
       <Component {...pageProps} />
+
+      {/* ANIMACIÓN CSS INLINE */}
+      <style jsx global>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
     </>
   );
 }

@@ -44,7 +44,10 @@ export default function Home() {
             marginBottom: '20px',
             textShadow: '2px 2px #EBD9F4',
           }}
-        >
+        ><div className="ticker-container">
+  <p className="ticker-text">✨ Crea tu historia, descárgala y hazla eterna con nuestra app ✨</p>
+</div>
+
           Bienvenido a <span style={{ color: '#AB47BC' }}>Cuentos Eternos</span>
         </h1>
 

@@ -15,7 +15,6 @@ export default function Home() {
           Donde cada historia se convierte en un recuerdo eterno, narrado con tu voz y tus emociones.
         </p>
 
-        {/* Botón de descarga */}
         <a
           href="https://tu-enlace-de-descarga.com"
           target="_blank"
@@ -36,7 +35,6 @@ export default function Home() {
           📲 Descarga la App
         </a>
 
-        {/* Secciones destacadas */}
         <div style={{ marginTop: '60px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
           {[
             {
@@ -72,3 +70,4 @@ export default function Home() {
     </>
   );
 }
+

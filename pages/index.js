@@ -1,54 +1,14 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
 
 export default function Home() {
-  useEffect(() => {
-    // Inyectar animación directamente al head
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes scroll-left {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-      }
-    `;
-    document.head.appendChild(style);
-  }, []);
-
-  const scrollStyle = {
-    backgroundColor: '#E0BBE4',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    height: '40px',
-    display: 'flex',
-    alignItems: 'center',
-    borderBottom: '1px solid #ccc'
-  };
-
-  const animatedText = {
-    display: 'inline-block',
-    paddingLeft: '100%',
-    fontWeight: 'bold',
-    color: '#6A1B9A',
-    fontSize: '16px',
-    animation: 'scroll-left 15s linear infinite'
-  };
-
   return (
     <>
       <Head>
         <title>Cuentos Eternos</title>
-        <meta name="description" content="Cuentos personalizados que duran para siempre" />
+        <meta name="description" content="Inmortaliza tus historias con nuestra app de cuentos personalizados" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Cintillo superior animado */}
-      <div style={scrollStyle}>
-        <div style={animatedText}>
-          ✨ Crea tu historia, descarga nuestra app y hazla eterna ✨
-        </div>
-      </div>
-
-      {/* Contenido principal */}
       <main style={{ backgroundColor: '#FAE7FB', minHeight: '100vh', padding: '40px 20px', textAlign: 'center' }}>
         <h1 style={{ color: '#6A1B9A', fontSize: '2.5rem' }}>Bienvenido a Cuentos Eternos</h1>
         <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>

@@ -49,7 +49,7 @@ export default function Home() {
               texto: 'Crea cuentos con tus personajes, tu voz y recuerdos reales.'
             },
             {
-              titulo: '👨‍👩‍👧 Conexión familiar',
+              titulo: '👨‍👩‍👧 Cuentos en Familia',
               texto: 'Fortalece el vínculo entre padres e hijos con historias únicas.'
             },
             {

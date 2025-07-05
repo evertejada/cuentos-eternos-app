@@ -1,4 +1,3 @@
-// /pages/index.js
 import Head from 'next/head';
 
 export default function Home() {
@@ -6,52 +5,76 @@ export default function Home() {
     <>
       <Head>
         <title>Cuentos Eternos</title>
-        <meta name="description" content="Donde cada historia se convierte en un recuerdo eterno." />
+        <meta name="description" content="Inmortaliza tus historias con nuestra app de cuentos personalizados" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Cintillo superior */}
-      <div className="bg-purple-200 text-purple-800 text-center text-sm py-2">
+      <div style={{ backgroundColor: '#E0BBE4', color: '#6A1B9A', textAlign: 'center', padding: '10px', fontWeight: 'bold' }}>
         ✨ Crea tu historia, descarga nuestra app y hazla eterna ✨
       </div>
 
-      <main className="min-h-screen bg-purple-50 text-center py-10 px-4">
-        <h1 className="text-4xl font-bold text-purple-800 mb-4">
-          Bienvenido a Cuentos Eternos
-        </h1>
-        <p className="text-lg text-purple-700 mb-6">
-          Donde cada historia se convierte en un recuerdo eterno,<br />
-          narrado con tu voz y tus emociones.
+      {/* Página principal */}
+      <main style={{ backgroundColor: '#FAE7FB', minHeight: '100vh', padding: '40px 20px', textAlign: 'center' }}>
+        <h1 style={{ color: '#6A1B9A', fontSize: '2.5rem' }}>Bienvenido a Cuentos Eternos</h1>
+        <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>
+          Donde cada historia se convierte en un recuerdo eterno, narrado con tu voz y tus emociones.
         </p>
 
-        {/* BOTÓN DE DESCARGA */}
+        {/* Botón de descarga */}
         <a
-          href="https://tu-enlace.com" // 👉 REEMPLAZA ESTE ENLACE
+          href="https://tu-enlace-de-descarga.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200"
+          style={{
+            display: 'inline-block',
+            backgroundColor: '#9C27B0',
+            color: '#fff',
+            padding: '15px 30px',
+            borderRadius: '10px',
+            fontSize: '1.1rem',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.2s ease-in-out',
+          }}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           📲 Descarga la App
         </a>
 
-        {/* Cards de beneficios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12 px-4 max-w-6xl mx-auto">
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-purple-800 mb-2">🎨 Personaliza tu historia</h3>
-            <p className="text-gray-600 text-sm">Crea cuentos con tus personajes, tu voz y recuerdos reales.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-purple-800 mb-2">👨‍👩‍👧‍👦 Conexión familiar</h3>
-            <p className="text-gray-600 text-sm">Fortalece el vínculo entre padres e hijos con historias únicas.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-purple-800 mb-2">🧠 Educación emocional</h3>
-            <p className="text-gray-600 text-sm">Ayuda a los niños a comprender sus emociones a través de cuentos.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-purple-800 mb-2">📚 Tu biblioteca mágica</h3>
-            <p className="text-gray-600 text-sm">Guarda y descarga todos los cuentos que crees con un solo clic.</p>
-          </div>
+        {/* Secciones destacadas */}
+        <div style={{ marginTop: '60px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+          {[
+            {
+              titulo: '🎨 Personaliza tu historia',
+              texto: 'Crea cuentos con tus personajes, tu voz y recuerdos reales.'
+            },
+            {
+              titulo: '👨‍👩‍👧 Conexión familiar',
+              texto: 'Fortalece el vínculo entre padres e hijos con historias únicas.'
+            },
+            {
+              titulo: '💗 Educación emocional',
+              texto: 'Ayuda a los niños a comprender sus emociones a través de cuentos.'
+            },
+            {
+              titulo: '📚 Tu biblioteca mágica',
+              texto: 'Guarda y descarga todos los cuentos que crees con un solo clic.'
+            }
+          ].map((seccion, index) => (
+            <div key={index} style={{
+              backgroundColor: '#fff',
+              borderRadius: '16px',
+              padding: '25px',
+              width: '260px',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+            }}>
+              <h3 style={{ color: '#6A1B9A', fontWeight: 'bold', fontSize: '1.2rem' }}>{seccion.titulo}</h3>
+              <p style={{ fontSize: '1rem', marginTop: '10px' }}>{seccion.texto}</p>
+            </div>
+          ))}
         </div>
       </main>
     </>

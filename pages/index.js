@@ -1,158 +1,158 @@
 // pages/index.js
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Cuentos Eternos</title>
+        <title>Cuentos Eternos | Crea cuentos mágicos</title>
         <meta
           name="description"
-          content="Cuentos personalizados para niños, con tu voz y tu historia"
+          content="Convierte tus recuerdos familiares en historias estilo Pixar con voz real, libros para colorear y mucho más."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* CINTILLO ANIMADO */}
-      <div
-        style={{
-          backgroundColor: '#FFDDEE',
-          color: '#6A1B9A',
-          fontWeight: 'bold',
-          textAlign: 'center',
-          padding: '10px 0',
-          animation: 'parpadeo 1.5s infinite',
-        }}
-      >
-        ✨ Crea tu historia, descárgala y hazla eterna con nuestra app ✨
+      {/* 🔮 Ticker superior (usa clases del globals.css) */}
+      <div className="ticker-container">
+        <span className="ticker-text">
+          ✨ Crea tu historia, descárgala y hazla eterna con nuestra app ✨
+        </span>
       </div>
 
-      {/* CONTENIDO PRINCIPAL */}
-      <main
+      {/* 🌈 HERO SECTION */}
+      <section
         style={{
-          background: 'linear-gradient(to bottom, #FDEBFF, #FFF)',
-          minHeight: '100vh',
-          padding: '40px 20px',
+          background:
+            'linear-gradient(135deg, #5a4bff 0%, #a34bff 50%, #ff80ff 100%)',
+          color: '#fff',
+          padding: '80px 20px',
           textAlign: 'center',
-          fontFamily: "'Comic Sans MS', cursive, sans-serif",
+          borderBottomLeftRadius: '20px',
+          borderBottomRightRadius: '20px',
         }}
       >
+        {/* Logo opcional */}
+        {/* <Image src="/logo.svg" alt="Logo" width={80} height={80} /> */}
+
         <h1
           style={{
-            fontSize: '3rem',
-            color: '#6A1B9A',
-            marginBottom: '20px',
-            textShadow: '2px 2px #EBD9F4',
+            fontSize: '2.8rem',
+            lineHeight: 1.2,
+            fontWeight: 700,
+            maxWidth: '900px',
+            margin: '0 auto',
           }}
-        ><div className="ticker-container">
-  <p className="ticker-text">✨ Crea tu historia, descárgala y hazla eterna con nuestra app ✨</p>
-</div>
-
-          Bienvenido a <span style={{ color: '#AB47BC' }}>Cuentos Eternos</span>
+        >
+          Inmortaliza tus recuerdos<br />en&nbsp;
+          <span style={{ color: '#ffe066' }}>cuentos mágicos</span>
         </h1>
 
         <p
           style={{
-            fontSize: '1.3rem',
-            color: '#555',
             maxWidth: '700px',
-            margin: '0 auto 30px',
+            margin: '20px auto 40px',
+            fontSize: '1.2rem',
           }}
         >
-          Donde cada historia se convierte en un recuerdo eterno, narrado con tu voz y tus emociones.
+          Transforma momentos familiares en historias estilo Pixar con narración
+          de voz real e ilustraciones únicas.
         </p>
 
-        <a
-          href="https://tu-enlace-de-descarga.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            backgroundColor: '#9C27B0',
-            color: '#fff',
-            padding: '15px 30px',
-            borderRadius: '16px',
-            fontSize: '1.1rem',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
-            transition: 'all 0.3s ease',
-          }}
-        >
-          📲 Descarga la App
+        <a href="#cta" className="button-primary">
+          ¡Crea tu primer cuento ahora!
         </a>
 
-        {/* CARDS DE BENEFICIOS */}
+        <p
+          style={{
+            marginTop: '12px',
+            fontWeight: '600',
+            color: '#ffd8ff',
+          }}
+        >
+          Oferta inicial: Caricatura mágica por solo&nbsp;$1
+        </p>
+      </section>
+
+      {/* ✨ CARACTERÍSTICAS MÁGICAS */}
+      <section
+        style={{
+          padding: '60px 20px',
+          background: 'radial-gradient(#f7eaff 0%, #faf5ff 80%)',
+        }}
+      >
+        <h2 className="text-center mt-4 mb-4 fade-in">
+          Nuestras Características Mágicas
+        </h2>
+
         <div
           style={{
-            marginTop: '60px',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '25px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '24px',
+            maxWidth: '1200px',
+            margin: '0 auto',
           }}
         >
           {[
             {
-              titulo: '🎨 Personaliza tus cuentos',
-              texto: 'Usa tu voz, tus fotos y tu historia para crear cuentos únicos.',
+              title: '📖 Cuentos Personalizados',
+              desc: 'Historias únicas con tus seres queridos como protagonistas.',
             },
             {
-              titulo: '👨‍👩‍👧 Conexión familiar',
-              texto: 'Fortalece el vínculo emocional con tus hijos cada noche.',
+              title: '🗣️ Narración con Voz Real',
+              desc: 'Voces clonadas con IA para una experiencia inmersiva.',
             },
             {
-              titulo: '💤 Rutina de sueño mágica',
-              texto: 'Relaja y guía a tus hijos con cuentos antes de dormir.',
+              title: '☁️ Biblioteca en la Nube',
+              desc: 'Accede a tus cuentos desde cualquier dispositivo.',
             },
             {
-              titulo: '📚 Biblioteca personal',
-              texto: 'Accede y descarga todos los cuentos que hayas creado.',
+              title: '🎨 Libros para Colorear',
+              desc: 'Convierte cada cuento en un libro imprimible.',
             },
-          ].map((item, i) => (
+            {
+              title: '🏆 Gamificación & Recompensas',
+              desc: 'Medallas, puntos y sorpresas por cada historia creada.',
+            },
+            {
+              title: '🌙 Modo Noche Relajante',
+              desc: 'Fondos suaves y audio ambiente para la hora de dormir.',
+            },
+          ].map((item) => (
             <div
-              key={i}
+              key={item.title}
+              className="fade-in"
               style={{
-                backgroundColor: '#FFF',
-                borderRadius: '18px',
+                background: '#fff',
+                borderRadius: '16px',
                 padding: '24px',
-                width: '260px',
-                boxShadow: '0 8px 18px rgba(0,0,0,0.1)',
-                textAlign: 'left',
-                border: '2px solid #F3D0FA',
+                boxShadow: '0 6px 16px rgba(0,0,0,0.05)',
               }}
             >
-              <h3
-                style={{
-                  color: '#7B1FA2',
-                  fontWeight: 'bold',
-                  fontSize: '1.2rem',
-                }}
-              >
-                {item.titulo}
+              <h3 style={{ marginBottom: '8px', color: '#6a1b9a' }}>
+                {item.title}
               </h3>
-              <p style={{ fontSize: '1rem', marginTop: '10px', color: '#333' }}>
-                {item.texto}
-              </p>
+              <p style={{ fontSize: '0.95rem', color: '#555' }}>{item.desc}</p>
             </div>
           ))}
         </div>
-      </main>
+      </section>
 
-      {/* ANIMACIÓN GLOBAL */}
-      <style jsx>{`
-        @keyframes parpadeo {
-          0% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.6;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-      `}</style>
+      {/* 🌟 SECCIÓN CTA FINAL */}
+      <section
+        id="cta"
+        style={{
+          padding: '60px 20px 100px',
+          textAlign: 'center',
+        }}
+      >
+        <h2 className="mb-4">¿Listo para escribir la próxima aventura?</h2>
+        <a className="button-primary" href="#">
+          Comenzar ahora
+        </a>
+      </section>
     </>
   );
 }

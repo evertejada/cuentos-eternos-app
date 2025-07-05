@@ -14,52 +14,45 @@ export default function Home() {
         `}</style>
       </Head>
 
-      {/* CINTILLO ANIMADO */}
+      {/* CINTILLO */}
       <div style={{
-        backgroundColor: '#f3e5f5',
+        backgroundColor: '#E0BBE4',
         overflow: 'hidden',
-        position: 'relative',
+        whiteSpace: 'nowrap',
         height: '40px',
+        display: 'flex',
+        alignItems: 'center',
         borderBottom: '1px solid #ccc'
       }}>
         <div style={{
           display: 'inline-block',
-          position: 'absolute',
-          whiteSpace: 'nowrap',
+          paddingLeft: '100%',
           animation: 'scroll-left 15s linear infinite',
           fontWeight: 'bold',
-          color: '#6a1b9a',
+          color: '#6A1B9A',
           fontSize: '16px'
         }}>
-          ✨ Descarga nuestra app, inmortaliza lo que más amas con un cuento eterno ✨
+          ✨ Crea tu historia, descarga nuestra app y hazla eterna ✨
         </div>
       </div>
 
-      {/* CONTENIDO PRINCIPAL */}
+      {/* CONTENIDO */}
       <main style={{ textAlign: 'center', padding: '40px' }}>
-        <h1 style={{ color: '#6a1b9a' }}>Bienvenido a Cuentos Eternos</h1>
-        <p style={{ fontSize: '18px' }}>
-          Donde cada historia se convierte en un recuerdo eterno, narrado con tu voz y tus emociones.
-        </p>
-        <a
-          href="https://tu-enlace-de-descarga.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            backgroundColor: '#8e24aa',
-            color: 'white',
-            padding: '12px 24px',
-            borderRadius: '8px',
-            fontSize: '16px',
-            textDecoration: 'none',
-            display: 'inline-block',
-            marginTop: '20px'
-          }}
-        >
+        <h1>Bienvenido a Cuentos Eternos</h1>
+        <p>Donde cada historia se convierte en un recuerdo eterno, narrado con tu voz y tus emociones.</p>
+        <button style={{
+          backgroundColor: '#8e24aa',
+          color: 'white',
+          border: 'none',
+          padding: '10px 20px',
+          borderRadius: '8px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          marginTop: '20px'
+        }}>
           📲 Descarga la App
-        </a>
+        </button>
       </main>
     </>
   );
 }
-

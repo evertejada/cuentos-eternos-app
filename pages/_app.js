@@ -22,29 +22,31 @@ export default function MyApp({ Component, pageProps }) {
         <Link href="/biblioteca"><span style={{ color: 'white' }}>Biblioteca</span></Link>
       </nav>
 
-      {/* CINTILLO PROMO ANIMADO */}
+      {/* CINTILLO ANIMADO CON SCROLL */}
       <div style={{
-        backgroundColor: '#e1bee7',
+        backgroundColor: '#f3e5f5',
         overflow: 'hidden',
         whiteSpace: 'nowrap',
-        fontWeight: 'bold',
-        fontSize: '15px',
-        color: '#6a1b9a',
-        padding: '8px 0'
+        position: 'relative',
+        height: '40px',
       }}>
         <div style={{
-          display: 'inline-block',
-          paddingLeft: '100%',
-          animation: 'scroll-left 20s linear infinite'
+          position: 'absolute',
+          whiteSpace: 'nowrap',
+          willChange: 'transform',
+          animation: 'scroll-left 15s linear infinite',
+          fontWeight: 'bold',
+          color: '#6a1b9a',
+          fontSize: '16px',
+          paddingLeft: '100%'
         }}>
-          📲 Descarga nuestra app, inmortaliza lo que más amas con un cuento eterno ✨
+          ✨ Descarga nuestra app, inmortaliza lo que más amas con un cuento eterno ✨
         </div>
       </div>
 
-      {/* CONTENIDO PRINCIPAL */}
       <Component {...pageProps} />
 
-      {/* ANIMACIÓN CSS INLINE */}
+      {/* ANIMACIÓN GLOBAL */}
       <style jsx global>{`
         @keyframes scroll-left {
           0% {

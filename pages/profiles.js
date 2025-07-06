@@ -1,67 +1,94 @@
 // pages/profiles.js
+
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import Head from 'next/head';
 
-const perfiles = [
-  { nombre: 'Ximena', avatar: '/avatars/avatar1.png' },
-  { nombre: 'Mía', avatar: '/avatars/avatar2.png' },
-  { nombre: 'Lucas', avatar: '/avatars/avatar3.png' },
-  { nombre: 'Agregar nuevo', avatar: '/avatars/add.png', nuevo: true },
-];
-
-export default function SeleccionarPerfil() {
+export default function Profiles() {
   const router = useRouter();
 
-  const seleccionarPerfil = (perfil) => {
-    if (perfil.nuevo) {
-      alert('Función "Agregar nuevo perfil" disponible en versión premium.');
-      return;
-    }
+  const profiles = [
+    { name: 'Ximena', image: '/images/ximena.jpg' },
+    { name: 'Mía', image: '/images/mia.jpg' },
+    { name: 'Lucas', image: '/images/lucas.jpg' },
+  ];
 
-    localStorage.setItem('perfilSeleccionado', JSON.stringify(perfil));
-    router.push('/');
+  const handleSelect = (name) => {
+    router.push(`/perfil/${name}`);
   };
 
-  useEffect(() => {
-    const yaSeleccionado = localStorage.getItem('perfilSeleccionado');
-    if (yaSeleccionado) {
-      router.push('/');
-    }
-  }, []);
-
   return (
-    <>
-      <Head>
-        <title>Selecciona tu perfil</title>
-      </Head>
-      <div style={{ minHeight: '100vh', backgroundColor: '#1a1a2e', color: '#fff', padding: '60px 20px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>¿Quién va a soñar hoy? ✨</h1>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: '30px',
-          maxWidth: '1000px',
-          margin: '0 auto'
-        }}>
-          {perfiles.map((perfil) => (
-            <div key={perfil.nombre} onClick={() => seleccionarPerfil(perfil)} style={{ cursor: 'pointer', transition: '0.3s' }}>
-              <img
-                src={perfil.avatar}
-                alt={perfil.nombre}
-                style={{
-                  width: '100%',
-                  borderRadius: '16px',
-                  border: perfil.nuevo ? '2px dashed #aaa' : '3px solid #fff',
-                  opacity: perfil.nuevo ? 0.6 : 1,
-                  transition: 'transform 0.2s',
-                }}
-              />
-              <p style={{ marginTop: '10px', fontSize: '1.1rem', fontWeight: '500' }}>{perfil.nombre}</p>
-            </div>
-          ))}
+    <div style={{
+      background: 'linear-gradient(to bottom, #e0eafc, #cfdef3)',
+      minHeight: '100vh',
+      textAlign: 'center',
+      padding: '40px 20px'
+    }}>
+      <h1 style={{ color: '#6A1B9A', fontSize: '2.5rem', marginBottom: '40px' }}>
+        ¿Quién va a escuchar un cuento mágico hoy?
+      </h1>
+
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '30px',
+        flexWrap: 'wrap',
+      }}>
+        {profiles.map((profile, i) => (
+          <div
+            key={i}
+            onClick={() => handleSelect(profile.name)}
+            style={{
+              cursor: 'pointer',
+              padding: '15px',
+              borderRadius: '20px',
+              backgroundColor: 'white',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              width: '130px',
+              textAlign: 'center',
+              transition: 'transform 0.2s ease-in-out',
+            }}
+          >
+            <img
+              src={profile.image}
+              alt={profile.name}
+              style={{
+                width: '100px',
+                height: '100px',
+                objectFit: 'cover',
+                borderRadius: '50%',
+                marginBottom: '10px',
+              }}
+            />
+            <strong style={{ color: '#6A1B9A' }}>{profile.name}</strong>
+          </div>
+        ))}
+
+        {/* Botón de Agregar perfil */}
+        <div
+          onClick={() => alert('Funcionalidad próxima')}
+          style={{
+            cursor: 'pointer',
+            padding: '15px',
+            borderRadius: '20px',
+            backgroundColor: 'linear-gradient(to right, #ff416c, #ff4b2b)',
+            background: '#f0f0f0',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            width: '130px',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            transition: 'transform 0.2s ease-in-out',
+          }}
+        >
+          <span style={{
+            fontSize: '3rem',
+            color: '#9c27b0',
+            lineHeight: '1',
+            marginBottom: '10px'
+          }}>+</span>
+          <strong style={{ color: '#6A1B9A' }}>Agregar nuevo</strong>
         </div>
       </div>
-    </>
+    </div>
   );
 }

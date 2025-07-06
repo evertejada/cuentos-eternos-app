@@ -71,7 +71,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 🧩 CARACTERÍSTICAS MÁGICAS */}
+      {/* 🧬 CARACTERÍSTICAS MÁGICAS */}
       <section
         style={{
           padding: '70px 20px',
@@ -91,7 +91,7 @@ export default function Home() {
             margin: '0 auto',
           }}
         >
-          {[
+          {[ 
             {
               title: '📖 Cuentos Personalizados',
               desc: 'Historias únicas donde tu hijo, mamá o abuelita son los protagonistas.',
@@ -125,6 +125,15 @@ export default function Home() {
                 borderRadius: '18px',
                 padding: '24px',
                 boxShadow: '0 6px 18px rgba(0,0,0,0.06)',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,0.06)';
               }}
             >
               <h3 style={{ marginBottom: '10px', color: '#6a1b9a', fontSize: '1.1rem' }}>

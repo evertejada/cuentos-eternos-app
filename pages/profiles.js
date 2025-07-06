@@ -1,4 +1,4 @@
-// pages/seleccionar-perfil.js
+// pages/profiles.js
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Head from 'next/head';
@@ -18,8 +18,9 @@ export default function SeleccionarPerfil() {
       alert('Función "Agregar nuevo perfil" disponible en versión premium.');
       return;
     }
+
     localStorage.setItem('perfilSeleccionado', JSON.stringify(perfil));
-    router.push('/'); // Redirige al home
+    router.push('/');
   };
 
   useEffect(() => {
@@ -32,46 +33,31 @@ export default function SeleccionarPerfil() {
   return (
     <>
       <Head>
-        <title>Selecciona tu perfil | Cuentos Eternos</title>
+        <title>Selecciona tu perfil</title>
       </Head>
-      <div style={{
-        background: 'linear-gradient(135deg, #ffd6ff, #e0c3fc)',
-        minHeight: '100vh',
-        padding: '40px 20px',
-        textAlign: 'center'
-      }}>
-        <h1 style={{ fontSize: '2.2rem', marginBottom: '30px', color: '#6a1b9a' }}>
-          ¿Quién va a escuchar un cuento mágico hoy?
-        </h1>
-
+      <div style={{ minHeight: '100vh', backgroundColor: '#1a1a2e', color: '#fff', padding: '60px 20px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>¿Quién va a soñar hoy? ✨</h1>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: '24px',
-          maxWidth: '700px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '30px',
+          maxWidth: '1000px',
           margin: '0 auto'
         }}>
-          {perfiles.map((perfil, i) => (
-            <div
-              key={i}
-              onClick={() => seleccionarPerfil(perfil)}
-              style={{
-                background: '#fff',
-                borderRadius: '16px',
-                padding: '16px',
-                cursor: 'pointer',
-                boxShadow: '0 6px 12px rgba(0,0,0,0.1)',
-                transition: 'transform 0.3s ease',
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            >
+          {perfiles.map((perfil) => (
+            <div key={perfil.nombre} onClick={() => seleccionarPerfil(perfil)} style={{ cursor: 'pointer', transition: '0.3s' }}>
               <img
                 src={perfil.avatar}
                 alt={perfil.nombre}
-                style={{ width: '80px', height: '80px', borderRadius: '50%', marginBottom: '12px' }}
+                style={{
+                  width: '100%',
+                  borderRadius: '16px',
+                  border: perfil.nuevo ? '2px dashed #aaa' : '3px solid #fff',
+                  opacity: perfil.nuevo ? 0.6 : 1,
+                  transition: 'transform 0.2s',
+                }}
               />
-              <h3 style={{ margin: 0, fontSize: '1rem', color: '#8e24aa' }}>{perfil.nombre}</h3>
+              <p style={{ marginTop: '10px', fontSize: '1.1rem', fontWeight: '500' }}>{perfil.nombre}</p>
             </div>
           ))}
         </div>
@@ -79,4 +65,3 @@ export default function SeleccionarPerfil() {
     </>
   );
 }
-

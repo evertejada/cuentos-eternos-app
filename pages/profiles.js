@@ -1,113 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¿Quién está leyendo hoy?</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #eef0f8, #dce3f0);
-      text-align: center;
-      color: #4b0082;
-    }
+import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 40px;
-      color: #6a0dad;
-    }
+export default function SeleccionPerfil() {
+  const perfiles = [
+    { nombre: "Leo", img: "/leo.jpg" },
+    { nombre: "Mia", img: "/mia.jpg" },
+    { nombre: "Max", img: "/max.jpg" }
+  ];
 
-    .profile-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 40px;
-    }
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 px-4 py-10">
+      <h1 className="text-4xl font-bold text-purple-700 mb-10 shadow-sm">
+        ¿Quién está viendo?
+      </h1>
 
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 140px;
-      transition: transform 0.3s ease;
-    }
+      <div className="flex flex-wrap gap-6 justify-center mb-12">
+        {perfiles.map((perfil, index) => (
+          <Card key={index} className="w-32 h-40 flex flex-col items-center justify-center rounded-2xl shadow-xl transition-transform hover:scale-105 cursor-pointer bg-white">
+            <img
+              src={perfil.img}
+              alt={perfil.nombre}
+              className="w-20 h-20 rounded-full object-cover mb-2 border-4 border-blue-200"
+            />
+            <span className="text-lg font-semibold text-gray-700">{perfil.nombre}</span>
+          </Card>
+        ))}
 
-    .profile:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
+        <Card className="w-32 h-40 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-tr from-purple-400 to-pink-400 text-white shadow-xl hover:scale-105 cursor-pointer transition-all">
+          <span className="text-4xl mb-2">＋</span>
+          <span className="font-medium">Agregar perfil</span>
+        </Card>
+      </div>
 
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #6a0dad;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .profile span {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .add-profile {
-      background: linear-gradient(135deg, #ec32a0, #7b2ff7);
-      border: 4px dashed white;
-      color: white;
-      font-size: 2rem;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .cta {
-      margin-top: 50px;
-      background: linear-gradient(90deg, #ffc107, #ff5722);
-      color: white;
-      padding: 20px 30px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      border-radius: 20px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .cta:hover {
-      background: linear-gradient(90deg, #ff9800, #ff3d00);
-    }
-  </style>
-</head>
-<body>
-  <h1>¿Quién está leyendo hoy?</h1>
-  <div class="profile-container">
-    <div class="profile">
-      <img src="https://cuentoseternos.com/images/leo.png" alt="Leo" />
-      <span>Leo</span>
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-6 py-4 shadow-md flex items-center gap-6">
+        <p className="text-white font-bold text-lg m-0">¡Caricatura mágica por $1!</p>
+        <Button className="bg-white text-orange-500 hover:bg-orange-100 transition-all font-semibold px-4 py-2 rounded-full shadow">
+          ¡Descúbrelo!
+        </Button>
+      </div>
     </div>
-    <div class="profile">
-      <img src="https://cuentoseternos.com/images/mia.png" alt="Mia" />
-      <span>Mia</span>
-    </div>
-    <div class="profile">
-      <img src="https://cuentoseternos.com/images/max.png" alt="Max" />
-      <span>Max</span>
-    </div>
-    <div class="profile">
-      <div class="add-profile">+</div>
-      <span>Agregar perfil</span>
-    </div>
-  </div>
-
-  <a class="cta" href="/caricatura">$1 Caricatura mágica → ¡Descúbrela!</a>
-</body>
-</html>
+  );
+}

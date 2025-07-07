@@ -1,75 +1,52 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React from 'react';
+import Image from 'next/image';
 
-const defaultAvatars = [
-  "/images/1.png",
-  "/images/2.png",
-  "/images/3.png",
+const profiles = [
+  { name: 'Leo', image: '/images/1.png' },
+  { name: 'Mia', image: '/images/2.png' },
+  { name: 'Max', image: '/images/3.png' },
 ];
 
 export default function Profiles() {
-  const [profiles, setProfiles] = useState([]);
-  const router = useRouter();
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("eternosProfiles")) || [];
-    if (stored.length > 0) {
-      setProfiles(stored);
-    } else {
-      const initialProfiles = defaultAvatars.map((img, i) => ({
-        id: i,
-        name: `Perfil ${i + 1}`,
-        img,
-      }));
-      setProfiles(initialProfiles);
-      localStorage.setItem("eternosProfiles", JSON.stringify(initialProfiles));
-    }
-  }, []);
-
-  const handleSelect = (profile) => {
-    localStorage.setItem("eternosSelected", JSON.stringify(profile));
-    router.push("/dashboard");
-  };
-
-  const handleAdd = () => {
-    const newId = profiles.length + 1;
-    const newProfile = {
-      id: newId,
-      name: `Nuevo ${newId}`,
-      img: `/images/${(newId % 3) + 1}.png`, // reutiliza imágenes
-    };
-    const updated = [...profiles, newProfile];
-    setProfiles(updated);
-    localStorage.setItem("eternosProfiles", JSON.stringify(updated));
-  };
-
   return (
-    <div className="min-h-screen bg-purple-100 flex flex-col items-center justify-center px-4 py-10">
-      <h1 className="text-2xl font-bold mb-8 text-purple-800">¿Quién está leyendo hoy?</h1>
+    <div className="min-h-screen bg-gradient-to-b from-[#e3e9ff] to-[#f5f7ff] flex flex-col items-center justify-center p-6">
+      <h1 className="text-4xl font-bold text-purple-700 mb-12">¿Quién está viendo?</h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {profiles.map((p) => (
-          <div
-            key={p.id}
-            className="flex flex-col items-center cursor-pointer transition hover:scale-105"
-            onClick={() => handleSelect(p)}
-          >
-            <img
-              src={p.img}
-              alt={p.name}
-              className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
-            />
-            <span className="mt-2 font-medium text-sm text-purple-900">{p.name}</span>
+      {/* Perfiles */}
+      <div className="flex gap-6 flex-wrap justify-center mb-16">
+        {profiles.map((profile, index) => (
+          <div key={index} className="flex flex-col items-center space-y-2">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-300 shadow-lg">
+              <Image
+                src={profile.image}
+                alt={profile.name}
+                width={128}
+                height={128}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <p className="text-lg font-semibold text-gray-800">{profile.name}</p>
           </div>
         ))}
 
-        {/* Botón para agregar nuevo perfil */}
-        <div
-          onClick={handleAdd}
-          className="flex flex-col items-center justify-center w-28 h-28 rounded-full border-4 border-dashed border-purple-400 cursor-pointer hover:bg-purple-200 transition"
-        >
-          <span className="text-3xl font-bold text-purple-600">+</span>
+        {/* Agregar perfil */}
+        <div className="flex flex-col items-center space-y-2">
+          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
+            <span className="text-white text-5xl font-bold">+</span>
+          </div>
+          <p className="text-lg font-semibold text-purple-600">Agregar perfil</p>
         </div>
+      </div>
+
+      {/* Banner inferior */}
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-500 px-6 py-4 rounded-xl shadow-xl flex items-center gap-4">
+        <p className="text-white font-bold text-lg">¡Caricatura mágica por $1!</p>
+        <button
+          className="bg-white text-orange-600 font-semibold px-4 py-2 rounded-full shadow hover:bg-orange-100 transition"
+          onClick={() => window.location.href = '/pago'}
+        >
+          ¡Descúbrelo!
+        </button>
       </div>
     </div>
   );
